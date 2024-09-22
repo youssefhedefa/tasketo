@@ -5,19 +5,19 @@ class AuthResponseModel {
   });
 
   final String? status;
-  final Data? data;
+  final UserData? data;
 
   factory AuthResponseModel.fromJson(Map<String, dynamic> json){
     return AuthResponseModel(
       status: json["status"],
-      data: json["data"] == null ? null : Data.fromJson(json["data"]),
+      data: json["data"] == null ? null : UserData.fromJson(json["data"]),
     );
   }
 
 }
 
-class Data {
-  Data({
+class UserData {
+  UserData({
     required this.id,
     required this.fullName,
     required this.email,
@@ -29,8 +29,8 @@ class Data {
   final String? email;
   final String? profileImage;
 
-  factory Data.fromJson(Map<String, dynamic> json){
-    return Data(
+  factory UserData.fromJson(Map<String, dynamic> json){
+    return UserData(
       id: json["id"],
       fullName: json["full_name"],
       email: json["email"],
