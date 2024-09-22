@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tasketo/core/components/custom_button.dart';
-import 'package:tasketo/core/helper/image_helper.dart';
-import 'package:tasketo/core/helper/text_style_helper.dart';
+import 'package:tasketo/core/routing/routing_constances.dart';
 import 'package:tasketo/features/auth/presentation/ui/auth_view.dart';
 import 'package:tasketo/features/auth/presentation/ui/widgets/auth_footer.dart';
 import 'package:tasketo/features/auth/presentation/ui/widgets/custom_input_field.dart';
 import 'package:tasketo/features/auth/presentation/ui/widgets/custom_password_input_field.dart';
-
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -14,31 +12,16 @@ class SignUpForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AuthView(
-      formTitle: 'Log In',
-      formSubTitle: 'Log In',
+      formTitle: 'Hi there!',
+      formSubTitle: 'Create an account to get started',
       form: Column(
         children: [
-          const SizedBox(
-            height: 20,
-          ),
-          Image.asset(
-            AppImageHelper.appBlackLogo,
-            width: 120,
-            height: 120,
+          const CustomInputField(
+            label: 'Full name',
+            hint: 'Enter your full name',
           ),
           const SizedBox(
             height: 20,
-          ),
-          const Text(
-            'Welcome Back',
-            style: AppTextStyleHelper.font22BoldPrimary,
-          ),
-          const Text(
-            'Log in to your account',
-            style: AppTextStyleHelper.font20MediumPrimary,
-          ),
-          const SizedBox(
-            height: 50,
           ),
           const CustomInputField(
             label: 'Email',
@@ -52,6 +35,13 @@ class SignUpForm extends StatelessWidget {
             hint: 'Enter your password',
           ),
           const SizedBox(
+            height: 20,
+          ),
+          const CustomPasswordInputField(
+            label: 'Confirm password',
+            hint: 'Enter your password again',
+          ),
+          const SizedBox(
             height: 66,
           ),
           CustomButton(
@@ -62,10 +52,15 @@ class SignUpForm extends StatelessWidget {
             height: 20,
           ),
           AuthFooter(
-            notClickable: 'Don’t have an account?',
-            clickable: 'Sign up now',
-            onPressed: () {},
-          )
+            notClickable: 'Have an account already?',
+            clickable: 'Log in now',
+            onPressed: () {
+              Navigator.pushNamed(context, AppRoutingConstances.logIn);
+            },
+          ),
+          const SizedBox(
+            height: 30,
+          ),
         ],
       ),
     );
