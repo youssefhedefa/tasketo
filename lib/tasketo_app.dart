@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasketo/core/routing/routing_constances.dart';
 import 'package:tasketo/core/routing/routing_manager.dart';
 
 class MyApp extends StatelessWidget {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: AppRoutingManager().onGenerateRoute,
-      initialRoute: '/',
+      initialRoute: AppRoutingConstances.onboarding,
     );
   }
 }

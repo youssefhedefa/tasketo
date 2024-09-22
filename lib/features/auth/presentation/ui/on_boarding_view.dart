@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasketo/core/components/custom_button.dart';
 import 'package:tasketo/core/helper/image_helper.dart';
 import 'package:tasketo/core/helper/text_style_helper.dart';
+import 'package:tasketo/core/routing/routing_constances.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
@@ -31,7 +32,7 @@ class OnBoardingView extends StatelessWidget {
             const SizedBox(height: 80),
             CustomButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                Navigator.pushNamed(context, AppRoutingConstances.login);
               },
             ),
           ],
