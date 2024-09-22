@@ -32,7 +32,7 @@ class OnBoardingView extends StatelessWidget {
             const SizedBox(height: 80),
             CustomButton(
               onPressed: () {
-                Navigator.pushNamed(context, AppRoutingConstances.login);
+                Navigator.pushNamed(context, AppRoutingConstances.logIn);
               },
               label: 'Get Started',
             ),
