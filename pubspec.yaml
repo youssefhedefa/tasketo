@@ -13,12 +13,24 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  flutter_native_splash: ^2.3.11
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#B44343"
+  image: assets/images/logo.png
+  android_12:
+    color: "#B44343"
+    image: assets/images/android_12_logo.png
+  #disable for windows
+  web : false
+
+
 
 flutter:
 
