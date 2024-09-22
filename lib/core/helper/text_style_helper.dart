@@ -8,6 +8,30 @@ abstract class AppTextStyleHelper{
     color: AppColorHelper.primary,
   );
 
+  static const TextStyle font20MediumPrimary = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.primary,
+  );
+
+  static const TextStyle font18MediumPrimary = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.primary,
+  );
+
+  static const TextStyle font16MediumBlack = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.black,
+  );
+
+  static const TextStyle font16MediumPrimary = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.primary,
+  );
+
   static const TextStyle font20RegularBlack = TextStyle(
     fontSize: 20,
     color: AppColorHelper.black,
