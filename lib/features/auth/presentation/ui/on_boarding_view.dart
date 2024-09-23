@@ -35,6 +35,7 @@ class OnBoardingView extends StatelessWidget {
                 Navigator.pushNamed(context, AppRoutingConstances.logIn);
               },
               label: 'Get Started',
+              isLoading: false,
             ),
           ],
         ),

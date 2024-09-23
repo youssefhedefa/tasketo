@@ -14,7 +14,7 @@ class _AuthApiServices implements AuthApiServices {
     this.baseUrl,
     this.errorLogger,
   }) {
-    baseUrl ??= 'http://localhost/task_management_api/';
+    baseUrl ??= 'http://192.168.1.3/task_management_api/';
   }
 
   final Dio _dio;

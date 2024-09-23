@@ -18,16 +18,20 @@ class LogInForm extends StatelessWidget {
       form: Column(
         children: [
 
-          const CustomInputField(
+          CustomInputField(
             label: 'Email',
             hint: 'Enter your email',
+            controller: TextEditingController(),
+            validatorText: '',
           ),
           const SizedBox(
             height: 20,
           ),
-          const CustomPasswordInputField(
+          CustomPasswordInputField(
             label: 'Password',
             hint: 'Enter your password',
+            controller: TextEditingController(),
+            validatorText: '',
           ),
           const SizedBox(
             height: 66,
@@ -35,6 +39,7 @@ class LogInForm extends StatelessWidget {
           CustomButton(
             onPressed: () {},
             label: 'Log in',
+            isLoading: false,
           ),
           const SizedBox(
             height: 20,

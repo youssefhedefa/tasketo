@@ -4,10 +4,12 @@ import 'package:tasketo/core/helper/text_style_helper.dart';
 
 
 class CustomPasswordInputField extends StatefulWidget {
-  const CustomPasswordInputField({super.key, required this.label, required this.hint});
+  const CustomPasswordInputField({super.key, required this.label, required this.hint, required this.controller, required this.validatorText});
 
   final String label;
   final String hint;
+  final TextEditingController controller;
+  final String validatorText;
 
   @override
   State<CustomPasswordInputField> createState() => _CustomPasswordInputFieldState();
@@ -29,6 +31,13 @@ class _CustomPasswordInputFieldState extends State<CustomPasswordInputField> {
         const SizedBox(height: 12),
         TextFormField(
           obscureText: _isObscure,
+          controller: widget.controller,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return widget.validatorText;
+            }
+            return null;
+          },
           decoration: InputDecoration(
             suffixIcon: IconButton(
               icon: Icon(

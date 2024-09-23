@@ -19,13 +19,16 @@ class SignUpCubit extends Cubit<SignUpState> {
   Future<void> signUp(
       {required String email,
       required String password,
-      required String fullName}) async {
+      required String fullName,
+        required String confirmPassword,
+      }) async {
     emit(SignUpLoadingState());
     final result = await repo.signUp(
       request: SignUpRequestModel(
         email: email,
         password: password,
         fullName: fullName,
+        confirmPassword: confirmPassword,
       ),
     );
     result.fold(

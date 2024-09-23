@@ -4,10 +4,12 @@ import 'package:tasketo/core/helper/text_style_helper.dart';
 
 
 class CustomInputField extends StatelessWidget {
-  const CustomInputField({super.key, required this.label, required this.hint});
+  const CustomInputField({super.key, required this.label, required this.hint, required this.controller, required this.validatorText});
 
   final String label;
   final String hint;
+  final TextEditingController controller;
+  final String validatorText;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +22,13 @@ class CustomInputField extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         TextFormField(
+          controller: controller,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return validatorText;
+            }
+            return null;
+          },
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: const TextStyle(

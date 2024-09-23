@@ -14,6 +14,17 @@ abstract class AppTextStyleHelper{
     color: AppColorHelper.primary,
   );
 
+  static const TextStyle font20MediumBlack = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.black,
+  );
+
+  static const TextStyle font18RegularGrey = TextStyle(
+    fontSize: 18,
+    color: AppColorHelper.grey,
+  );
+
   static const TextStyle font18MediumPrimary = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
