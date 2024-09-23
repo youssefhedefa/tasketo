@@ -37,6 +37,12 @@ abstract class AppTextStyleHelper{
     color: AppColorHelper.grey,
   );
 
+  static const TextStyle font16BoldPrimary = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.bold,
+    color: AppColorHelper.primary,
+  );
+
   static const TextStyle font18MediumPrimary = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,

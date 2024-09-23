@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tasketo/core/helper/color_helper.dart';
 import 'package:tasketo/core/helper/image_helper.dart';
 import 'package:tasketo/core/helper/text_style_helper.dart';
+import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/log_out_dialog.dart';
 
 
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -37,7 +38,9 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               size: 44,
               color: AppColorHelper.primary
             ),
-            onPressed: () {},
+            onPressed: () {
+              showLogOutTaskDialog(context: context);
+            },
           ),
         ],
       ),
