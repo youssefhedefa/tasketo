@@ -63,7 +63,7 @@ class SignUpForm extends StatelessWidget {
                 if (state is SignUpLoadingState) {
                   return CustomButton(
                     onPressed: () {},
-                    label: 'Log in',
+                    label: 'Sign up',
                     isLoading: true,
                   );
                 }
@@ -71,7 +71,7 @@ class SignUpForm extends StatelessWidget {
                   onPressed: () {
                     signUpAction(context: context);
                   },
-                  label: 'Log in',
+                  label: 'Sign up',
                   isLoading: false,
                 );
               },

@@ -4,6 +4,7 @@ import 'package:tasketo/core/networking/dio_factory.dart';
 import 'package:tasketo/features/auth/data/auth_repo_imple/auth_repo_imple.dart';
 import 'package:tasketo/features/auth/data/data_source/auth_api.dart';
 import 'package:tasketo/features/auth/domain/auth_repo/auth_repo.dart';
+import 'package:tasketo/features/auth/presentation/manager/log_in_cubit/log_in_cubit.dart';
 import 'package:tasketo/features/auth/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
 
 var getIt = GetIt.instance;
@@ -27,6 +28,12 @@ void setupDependencyInjection() async {
 
   getIt.registerFactory<SignUpCubit>(
     () => SignUpCubit(
+      repo: getIt<AuthRepo>(),
+    ),
+  );
+
+  getIt.registerFactory<LogInCubit>(
+        () => LogInCubit(
       repo: getIt<AuthRepo>(),
     ),
   );
