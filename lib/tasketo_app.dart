@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: AppRoutingManager().onGenerateRoute,
-      initialRoute: isLoggedInUser ? AppRoutingConstances.logIn : AppRoutingConstances.onboarding,
+      initialRoute: isLoggedInUser ? AppRoutingConstances.home : AppRoutingConstances.onboarding,
     );
   }
 }

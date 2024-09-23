@@ -17,7 +17,6 @@ void main() async {
 bool isLoggedInUser = false;
 checkUserLoggedIn() {
   final id =  AppLocalStorageHelper.getId();
-  print('token: $id');
   if (id != 0) {
     isLoggedInUser = true;
   }

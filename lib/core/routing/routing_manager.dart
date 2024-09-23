@@ -8,6 +8,7 @@ import 'package:tasketo/features/auth/presentation/manager/sign_up_cubit/sign_up
 import 'package:tasketo/features/auth/presentation/ui/forms/log_in_form.dart';
 import 'package:tasketo/features/auth/presentation/ui/forms/sign_up_form.dart';
 import 'package:tasketo/features/auth/presentation/ui/on_boarding_view.dart';
+import 'package:tasketo/features/home/presentation/ui/home_view.dart';
 
 class AppRoutingManager {
   Route? onGenerateRoute(RouteSettings settings) {
@@ -21,16 +22,21 @@ class AppRoutingManager {
         return CustomPageRoute(
           child: BlocProvider(
             create: (context) => getIt<LogInCubit>(),
-              child: const LogInForm(),
+            child: const LogInForm(),
           ),
           axisDirection: AxisDirection.left,
         );
-        case AppRoutingConstances.signUp:
+      case AppRoutingConstances.signUp:
         return CustomPageRoute(
           child: BlocProvider(
             create: (context) => getIt<SignUpCubit>(),
-              child: const SignUpForm(),
+            child: const SignUpForm(),
           ),
+          axisDirection: AxisDirection.left,
+        );
+      case AppRoutingConstances.home:
+        return CustomPageRoute(
+          child: const HomeView(),
           axisDirection: AxisDirection.left,
         );
       default:

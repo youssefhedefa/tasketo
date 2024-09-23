@@ -8,6 +8,12 @@ abstract class AppTextStyleHelper{
     color: AppColorHelper.primary,
   );
 
+  static const TextStyle font24BoldBlack = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: AppColorHelper.black,
+  );
+
   static const TextStyle font20MediumPrimary = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
