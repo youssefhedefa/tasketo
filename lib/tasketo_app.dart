@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tasketo/core/routing/routing_constances.dart';
 import 'package:tasketo/core/routing/routing_manager.dart';
+import 'package:tasketo/main.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       onGenerateRoute: AppRoutingManager().onGenerateRoute,
-      initialRoute: AppRoutingConstances.onboarding,
+      initialRoute: isLoggedInUser ? AppRoutingConstances.logIn : AppRoutingConstances.onboarding,
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasketo/core/networking/local_storage/app_local_storage.dart';
 import 'package:tasketo/features/auth/data/models/sign_up_request_model.dart';
 import 'package:tasketo/features/auth/domain/auth_repo/auth_repo.dart';
 import 'package:tasketo/features/auth/presentation/manager/sign_up_cubit/sign_up_states.dart';
@@ -32,7 +33,10 @@ class SignUpCubit extends Cubit<SignUpState> {
       ),
     );
     result.fold(
-      (user) => emit(SignUpSuccessState(userData: user.data!)),
+      (user) {
+        AppLocalStorageHelper.setId(value: user.data!.id!);
+        emit(SignUpSuccessState());
+      },
       (failure) => emit(
         SignUpErrorState(
           message: failure.error.message ?? 'An Error Happen',
