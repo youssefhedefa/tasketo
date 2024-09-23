@@ -20,6 +20,12 @@ abstract class AppTextStyleHelper{
     color: AppColorHelper.primary,
   );
 
+  static const TextStyle font20SemiBoldBlack = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    color: AppColorHelper.black,
+  );
+
   static const TextStyle font20MediumBlack = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -47,6 +53,23 @@ abstract class AppTextStyleHelper{
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColorHelper.primary,
+  );
+
+  static const TextStyle font16MediumWhite = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.white,
+  );
+
+  static const TextStyle font16MediumGrey = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    color: AppColorHelper.grey,
+  );
+
+  static const TextStyle font16RegularGrey = TextStyle(
+    fontSize: 16,
+    color: AppColorHelper.grey,
   );
 
   static const TextStyle font20RegularBlack = TextStyle(
