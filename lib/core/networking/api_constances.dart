@@ -5,4 +5,5 @@ abstract class ApiConstances{
   static const String logIn = 'auth/log_in.php';
   // tasks
   static const String getTasks = 'tasks/get_tasks.php';
+  static const String addTask = 'tasks/add_task.php';
 }

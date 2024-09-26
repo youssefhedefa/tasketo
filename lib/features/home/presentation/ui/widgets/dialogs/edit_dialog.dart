@@ -6,7 +6,9 @@ import 'package:tasketo/features/auth/presentation/ui/widgets/custom_input_field
 import 'package:tasketo/features/home/presentation/ui/widgets/custom_date_shower.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/custom_state_picker_widget.dart';
 
-editTaskDialog({required BuildContext context}) {
+editTaskDialog({
+  required BuildContext context,
+}) {
   return showDialog(
     context: context,
     builder: (context) {

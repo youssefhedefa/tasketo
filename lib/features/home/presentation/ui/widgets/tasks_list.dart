@@ -1,32 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tasketo/core/helper/text_style_helper.dart';
 import 'package:tasketo/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:tasketo/features/home/presentation/manager/get_tasks_cubit/get_tasks_states.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/task_item.dart';
 
-class TasksList extends StatefulWidget {
-  const TasksList({super.key, });
+class TasksList extends StatelessWidget {
+  const TasksList({
+    super.key,
+  });
 
-
-  @override
-  State<TasksList> createState() => _TasksListState();
-}
-
-class _TasksListState extends State<TasksList> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: BlocBuilder<GetTasksCubit,GetTasksState>(
-        builder: (context,state) {
-          if(state is GetTasksLoadingState) {
+      child: BlocBuilder<GetTasksCubit, GetTasksState>(
+        builder: (context, state) {
+          if (state is GetTasksLoadingState) {
             return const Center(child: CircularProgressIndicator());
           }
-          if(state is GetTasksErrorState) {
+          if (state is GetTasksErrorState) {
             return Center(child: Text(state.message));
           }
-          if(state is GetTasksSuccessState) {
-            if(state.tasks.isEmpty) {
-              return const Center(child: Text('No tasks found'));
+          if (state is GetTasksSuccessState) {
+            if (state.tasks.isEmpty) {
+              return const Center(
+                child: Text(
+                  'No tasks found',
+                  style: AppTextStyleHelper.font20SemiBoldBlack,
+                ),
+              );
             }
             return ListView.separated(
               itemBuilder: (context, index) => TaskItem(
@@ -37,7 +39,7 @@ class _TasksListState extends State<TasksList> {
             );
           }
           return const SizedBox();
-        }
+        },
       ),
     );
   }

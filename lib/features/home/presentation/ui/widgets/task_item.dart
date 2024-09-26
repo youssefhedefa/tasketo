@@ -83,7 +83,7 @@ class TaskItem extends StatelessWidget {
                     task.deadline,
                     style: AppTextStyleHelper.font16RegularGrey
                 ),
-                const SizedBox(width: 14),
+                const Flexible(child: SizedBox(width: 50)),
                 StateContainer(taskState: ToTaskEntityList.getStateEnum(task.state)),
               ],
             ),
@@ -99,10 +99,4 @@ class TaskItem extends StatelessWidget {
       ),
     );
   }
-
-
-  filterTasks(String state) {
-
-  }
-
 }

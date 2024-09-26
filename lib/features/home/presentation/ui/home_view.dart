@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasketo/core/helper/color_helper.dart';
+import 'package:tasketo/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/add_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/home_app_bar.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/task_states_list.dart';
@@ -14,7 +16,9 @@ class HomeView extends StatelessWidget {
       appBar: const HomeAppBar(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          addTaskDialog(context: context);
+          addTaskDialog(context: context).then((value) {
+            context.read<GetTasksCubit>().getUserTasks();
+          });
         },
         backgroundColor: AppColorHelper.primary,
         child: const Icon(
