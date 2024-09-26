@@ -77,7 +77,7 @@ class SignUpForm extends StatelessWidget {
               },
               listener: (context, state) {
                 if (state is SignUpSuccessState) {
-                  // Navigator.pushNamed(context, AppRoutingConstances.home);
+                  Navigator.pushNamedAndRemoveUntil(context, AppRoutingConstances.home, (route) => false);
                   // showErrorDialog(context: context, error: 'Success');
                 }
                 if (state is SignUpErrorState) {

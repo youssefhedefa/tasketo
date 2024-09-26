@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tasketo/core/helper/color_helper.dart';
 import 'package:tasketo/core/helper/text_style_helper.dart';
-import 'package:tasketo/features/home/data/enum/task_states_enum.dart';
+import 'package:tasketo/features/home/data/mapper/to_task_entity.dart';
+import 'package:tasketo/features/home/domain/entities/task_entity.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/delete_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/edit_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/view_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/state_container.dart';
 
 class TaskItem extends StatelessWidget {
-  const TaskItem({super.key});
+  const TaskItem({super.key, required this.task});
+
+  final TaskEntity task;
 
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,11 @@ class TaskItem extends StatelessWidget {
       onTap: () {
         showDialogDetails(
             context: context,
-            title: 'Task TitleTask TitleTask TitleTask TitleTask TitleTask Title',
+            title: task.title,
             description:
-                'Task DescriptionTaskTask DescriptionTaskTask DescriptionTask DescriptionTask DescriptionTask DescriptionTask Description',
-            date: '23/9/2024',
-            state: 'In Progress',
+                task.description,
+            date: task.deadline,
+            state: task.state,
         );
       },
       child: Container(
@@ -44,8 +47,8 @@ class TaskItem extends StatelessWidget {
               children: [
                 SizedBox(
                   width: MediaQuery.of(context).size.width - (180),
-                  child: const Text(
-                    'Task TitleTask TitleTask TitleTask TitleTask TitleTask Title',
+                  child: Text(
+                    task.title,
                     style: AppTextStyleHelper.font20SemiBoldBlack,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -74,19 +77,19 @@ class TaskItem extends StatelessWidget {
                 ),
               ],
             ),
-            const Row(
+            Row(
               children: [
                 Text(
-                    '23/9/2024',
+                    task.deadline,
                     style: AppTextStyleHelper.font16RegularGrey
                 ),
-                SizedBox(width: 14),
-                StateContainer(taskState: TaskStatesEnum.inProgress),
+                const SizedBox(width: 14),
+                StateContainer(taskState: ToTaskEntityList.getStateEnum(task.state)),
               ],
             ),
-            const SizedBox(height: 10),
-            const Text(
-              'Task DescriptionTaskTask DescriptionTaskTask DescriptionTask DescriptionTask DescriptionTask DescriptionTask Description',
+            const SizedBox(height: 12),
+            Text(
+              task.description,
               style: AppTextStyleHelper.font16RegularGrey,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
@@ -96,4 +99,10 @@ class TaskItem extends StatelessWidget {
       ),
     );
   }
+
+
+  filterTasks(String state) {
+
+  }
+
 }

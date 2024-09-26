@@ -3,4 +3,6 @@ abstract class ApiConstances{
   // auth
   static const String signUp = 'auth/sign_up.php';
   static const String logIn = 'auth/log_in.php';
+  // tasks
+  static const String getTasks = 'tasks/get_tasks.php';
 }
