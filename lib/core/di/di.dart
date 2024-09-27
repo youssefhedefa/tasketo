@@ -11,6 +11,7 @@ import 'package:tasketo/features/home/data/repo_imple/home_repo_imple.dart';
 import 'package:tasketo/features/home/domain/repo/home_repo.dart';
 import 'package:tasketo/features/home/presentation/manager/add_task_cubit/add_task_cubit.dart';
 import 'package:tasketo/features/home/presentation/manager/delete_task_cubit/delete_task_cubit.dart';
+import 'package:tasketo/features/home/presentation/manager/edit_task_cubit/edit_task_cubit.dart';
 import 'package:tasketo/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 
 var getIt = GetIt.instance;
@@ -76,4 +77,9 @@ void setupDependencyInjection() async {
     ),
   );
 
+    getIt.registerFactory<EditTaskCubit>(
+    () => EditTaskCubit(
+      repo: getIt<HomeRepo>(),
+    ),
+  );
 }

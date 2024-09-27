@@ -58,7 +58,9 @@ class TaskItem extends StatelessWidget {
                 const Spacer(),
                 IconButton(
                   onPressed: () {
-                    editTaskDialog(context: context);
+                    editTaskDialog(context: context, task: task).then((value) {
+                      context.read<GetTasksCubit>().getUserTasks();
+                    });
                   },
                   icon: const Icon(
                     Icons.edit_note_rounded,

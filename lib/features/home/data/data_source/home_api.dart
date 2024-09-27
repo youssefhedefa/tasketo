@@ -5,6 +5,7 @@ import 'package:tasketo/features/home/data/models/add_task_request.dart';
 import 'package:tasketo/features/home/data/models/alter_task_response.dart';
 import 'package:tasketo/features/home/data/models/delete_task_request.dart';
 import 'package:tasketo/features/home/data/models/get_tasks_model.dart';
+import 'package:tasketo/features/home/data/models/update_task_request.dart';
 
 part 'home_api.g.dart';
 
@@ -27,6 +28,11 @@ abstract class HomeApiService {
   @DELETE(ApiConstances.deleteTask)
   Future<AlterTaskResponseModel> deleteTask({
     @Body() required DeleteTaskRequestModel request,
+  });
+
+  @PUT(ApiConstances.editTask)
+  Future<AlterTaskResponseModel> editTask({
+    @Body() required EditTaskRequestModel request,
   });
 
 

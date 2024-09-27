@@ -7,6 +7,7 @@ import 'package:tasketo/features/home/data/models/add_task_request.dart';
 import 'package:tasketo/features/home/data/models/alter_task_response.dart';
 import 'package:tasketo/features/home/data/models/delete_task_request.dart';
 import 'package:tasketo/features/home/data/models/get_tasks_model.dart';
+import 'package:tasketo/features/home/data/models/update_task_request.dart';
 import 'package:tasketo/features/home/domain/entities/task_entity.dart';
 import 'package:tasketo/features/home/domain/repo/home_repo.dart';
 
@@ -45,6 +46,16 @@ class HomeRepoImple extends HomeRepo{
       return Left(response);
     }
     catch(e){
+      return Right(Failure.fromApi(e));
+    }
+  }
+
+  @override
+  Future<Either<AlterTaskResponseModel, Failure>> editTask({required EditTaskRequestModel request}) async{
+    try{
+      final response = await apiService.editTask(request: request);
+      return Left(response);
+    }catch(e){
       return Right(Failure.fromApi(e));
     }
   }

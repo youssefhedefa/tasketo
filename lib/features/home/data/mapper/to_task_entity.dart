@@ -24,16 +24,17 @@ class ToTaskEntityList {
   }
 
   static getStateEnum(String state) {
-    switch(state.toLowerCase()) {
+    switch (state.toLowerCase()) {
       case 'all':
         return TaskStatesEnum.all;
-      case 'inProgress':
+      case 'in Progress':
         return TaskStatesEnum.inProgress;
       case 'waiting':
         return TaskStatesEnum.waiting;
       case 'finished':
         return TaskStatesEnum.finished;
+      default:
+        return TaskStatesEnum.inProgress;
     }
   }
-
 }
