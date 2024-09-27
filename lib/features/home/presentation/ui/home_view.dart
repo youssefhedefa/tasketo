@@ -17,7 +17,9 @@ class HomeView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           addTaskDialog(context: context).then((value) {
-            context.read<GetTasksCubit>().getUserTasks();
+            context.read<GetTasksCubit>().getTasksByState(
+                state: context.read<GetTasksCubit>().selectedState
+            );
           });
         },
         backgroundColor: AppColorHelper.primary,

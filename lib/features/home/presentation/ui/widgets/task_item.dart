@@ -60,6 +60,9 @@ class TaskItem extends StatelessWidget {
                   onPressed: () {
                     editTaskDialog(context: context, task: task).then((value) {
                       context.read<GetTasksCubit>().getUserTasks();
+                      context.read<GetTasksCubit>().getTasksByState(
+                          state: context.read<GetTasksCubit>().selectedState
+                      );
                     });
                   },
                   icon: const Icon(
@@ -75,6 +78,9 @@ class TaskItem extends StatelessWidget {
                       taskId: task.taskId,
                     ).then((value) {
                       context.read<GetTasksCubit>().getUserTasks();
+                      context.read<GetTasksCubit>().getTasksByState(
+                          state: context.read<GetTasksCubit>().selectedState
+                      );
                     });
                   },
                   icon: const Icon(

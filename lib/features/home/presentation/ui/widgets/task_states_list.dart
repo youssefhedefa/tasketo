@@ -47,6 +47,7 @@ class _TaskStatesListState extends State<TaskStatesList> {
       onTap: () {
         setState(() {
           selectedIndex = index;
+          context.read<GetTasksCubit>().selectedState = statues[index] ?? TaskStatesEnum.all;
         });
         context.read<GetTasksCubit>().getTasksByState(state: statues[index] ?? TaskStatesEnum.all);
       },

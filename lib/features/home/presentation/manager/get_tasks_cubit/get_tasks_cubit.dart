@@ -10,6 +10,7 @@ class GetTasksCubit extends Cubit<GetTasksState> {
   final HomeRepo repo;
 
   List<TaskEntity> userTasks = [];
+  TaskStatesEnum selectedState = TaskStatesEnum.all;
 
   Future getUserTasks() async {
     emit(GetTasksLoadingState());
