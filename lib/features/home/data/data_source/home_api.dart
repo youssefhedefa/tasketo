@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 import 'package:tasketo/core/networking/api_constances.dart';
 import 'package:tasketo/features/home/data/models/add_task_request.dart';
 import 'package:tasketo/features/home/data/models/alter_task_response.dart';
+import 'package:tasketo/features/home/data/models/delete_task_request.dart';
 import 'package:tasketo/features/home/data/models/get_tasks_model.dart';
 
 part 'home_api.g.dart';
@@ -22,5 +23,11 @@ abstract class HomeApiService {
   Future<AlterTaskResponseModel> addTask({
     @Body() required AddTaskRequestModel task,
   });
+
+  @DELETE(ApiConstances.deleteTask)
+  Future<AlterTaskResponseModel> deleteTask({
+    @Body() required DeleteTaskRequestModel request,
+  });
+
 
 }

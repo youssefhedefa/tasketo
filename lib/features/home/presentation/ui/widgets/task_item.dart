@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tasketo/core/helper/color_helper.dart';
 import 'package:tasketo/core/helper/text_style_helper.dart';
 import 'package:tasketo/features/home/data/mapper/to_task_entity.dart';
 import 'package:tasketo/features/home/domain/entities/task_entity.dart';
+import 'package:tasketo/features/home/presentation/manager/get_tasks_cubit/get_tasks_cubit.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/delete_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/edit_dialog.dart';
 import 'package:tasketo/features/home/presentation/ui/widgets/dialogs/view_dialog.dart';
@@ -18,12 +20,11 @@ class TaskItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showDialogDetails(
-            context: context,
-            title: task.title,
-            description:
-                task.description,
-            date: task.deadline,
-            state: task.state,
+          context: context,
+          title: task.title,
+          description: task.description,
+          date: task.deadline,
+          state: task.state,
         );
       },
       child: Container(
@@ -67,7 +68,12 @@ class TaskItem extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
-                    showDeleteTaskDialog(context: context);
+                    showDeleteTaskDialog(
+                      context: context,
+                      taskId: task.taskId,
+                    ).then((value) {
+                      context.read<GetTasksCubit>().getUserTasks();
+                    });
                   },
                   icon: const Icon(
                     Icons.delete_rounded,
@@ -79,12 +85,11 @@ class TaskItem extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(
-                    task.deadline,
-                    style: AppTextStyleHelper.font16RegularGrey
-                ),
+                Text(task.deadline,
+                    style: AppTextStyleHelper.font16RegularGrey),
                 const Flexible(child: SizedBox(width: 50)),
-                StateContainer(taskState: ToTaskEntityList.getStateEnum(task.state)),
+                StateContainer(
+                    taskState: ToTaskEntityList.getStateEnum(task.state)),
               ],
             ),
             const SizedBox(height: 12),

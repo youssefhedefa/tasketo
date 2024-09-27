@@ -6,4 +6,5 @@ abstract class ApiConstances{
   // tasks
   static const String getTasks = 'tasks/get_tasks.php';
   static const String addTask = 'tasks/add_task.php';
+  static const String deleteTask = 'tasks/delete_task.php';
 }

@@ -46,7 +46,6 @@ Future addTaskDialog({required BuildContext context}) {
                     CustomDateShower(
                       label: 'Date',
                       callback: (value) {
-                        print(value);
                         context.read<AddTaskCubit>().deadlineController = value;
                       },
                     ),
